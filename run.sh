@@ -127,7 +127,12 @@ git add --all . > /dev/null
 if git diff --cached --exit-code --quiet; then
   s_success "Nothing changed. We do not need to push"
 else
-  git commit -am "[ci skip] deploy from $WERCKER_STARTED_BY" --allow-empty > /dev/null
+  if [ -z "$WERCKER_GIT_PUSH_CI_SKIP" ] || [ "$WERCKER_GIT_PUSH_CI_SKIP" = "true" ]; then
+    commit_msg="[ci skip] deploy from $WERCKER_STARTED_BY"
+  else
+    commit_msg="deploy from $WERCKER_STARTED_BY"
+  fi
+  git commit -am "$commit_msg" --allow-empty > /dev/null
   pushBranch $remoteURL $localBranch $remoteBranch
 fi
 
