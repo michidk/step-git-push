@@ -32,6 +32,7 @@ You either have to define a `gh_oauth` token if you deploy to github or a `host`
 - `tag` *optional* Adds a tag to the pushed commit. Valid options are bower, node or any string.
 - `tag_overwrite` *optional* If set, tags will be overwritten
 - `ci_trigger` *optional* If set to `true`, commit message won't start with `[ci skip]`. Default is `false`. See [Skipping builds](http://blog.wercker.com/2014/05/01/Skipping-builds-on-wercker.html)
+- `message` *optional* If set, it will be used instead of default `deploy from deploy from $WERCKER_STARTED_BY`
 
 ## Example
 
@@ -56,7 +57,7 @@ deploy:
     - add-to-known_hosts:
         hostname: bitbucket.org
         fingerprint: 97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40
-    - git-push:
+    - lordlothar99/git-push:
          host: bitbucket.org
          repo: example/exampleRepo
          branch: example
