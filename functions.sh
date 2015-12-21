@@ -190,7 +190,7 @@ function pushBranch {
 }
 
 function pushTag {
-  git tag -a $2 -m "Tagged by $WERCKER_STARTED_BY" -f > /dev/null
+  git tag -f -a $2 -m "Tagged by $WERCKER_STARTED_BY" -f > /dev/null
   result="$(git push --tags $1 2>&1)"
   if [[ $? -ne 0 ]]; then
     s_warning "$result"
@@ -200,11 +200,3 @@ function pushTag {
   fi
 }
 
-function deleteTag {
-  git tag -d $2 > /dev/null
-  result="$(git push $1 --delete refs/tags/$2 2>&1)"
-  if [[ $? -ne 0 ]]; then
-    s_warning "$result"
-    s_fail "failed delete $2 from $1"
-  fi
-}

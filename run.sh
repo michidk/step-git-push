@@ -145,13 +145,8 @@ if [ -n "$WERCKER_GIT_PUSH_TAG" ]; then
   if [[ "$tags" =~ "$tag" ]]; then
     s_info "tag $tag already exists"
     if [ -n "$WERCKER_GIT_PUSH_TAG_OVERWRITE" ]; then
-      if git diff --exit-code --quiet $localBranch $tag; then
-        s_success "Nothing changed. We do not need to overwrite tag $tag"
-      else
-        s_info "tag $tag will be overwritten"
-        deleteTag $remoteURL $tag
-        pushTag $remoteURL $tag
-      fi
+      s_info "tag $tag will be overwritten"
+      pushTag $remoteURL $tag
     fi
   else
       pushTag $remoteURL $tag

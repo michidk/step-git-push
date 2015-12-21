@@ -1,5 +1,7 @@
 # Git Branch Deploy
 
+[![wercker status](https://app.wercker.com/status/c9d675d9c3f012382a911a9e60b21c71/s "wercker status")](https://app.wercker.com/project/bykey/c9d675d9c3f012382a911a9e60b21c71)
+
 A [wercker](http://wercker.com/) step to deploy to a certain git branch in a repo. Supports also [Github Pages](http://pages.github.com/).
 
 # IMPORTANT SECURITY NOTICE:
@@ -63,3 +65,6 @@ deploy:
          branch: example
          basedir: build
 ```
+## Changelog
+
+0.7.17 - Fixed tag overwrite
