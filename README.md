@@ -67,4 +67,4 @@ deploy:
 ```
 ## Changelog
 
-0.7.17 - Fixed tag overwrite
+0.7.18 - Fixed tag overwrite

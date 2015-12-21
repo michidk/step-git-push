@@ -191,7 +191,7 @@ function pushBranch {
 
 function pushTag {
   git tag -f -a $2 -m "Tagged by $WERCKER_STARTED_BY" -f > /dev/null
-  result="$(git push --tags $1 2>&1)"
+  result="$(git push --tags -f $1 2>&1)"
   if [[ $? -ne 0 ]]; then
     s_warning "$result"
     s_fail "failed pushing to tag $1 with $2"
