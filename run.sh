@@ -93,7 +93,7 @@ cd $targetDir
 
 ls -A
 
-cp -rf $baseDir* $destDir
+cp -rf $baseDir. $destDir
 
 s_debug "before config"
 

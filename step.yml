@@ -1,0 +1,13 @@
+name: git-push
+version: 0.7.19
+summary: Deploy to a git branch in a given Repo
+category: imported
+tags:
+- github
+- pages
+- deploy
+- git
+- bitbucket
+- push
+- tags
+properties: []

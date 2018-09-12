@@ -1,1 +1,9 @@
-box: wercker/default
+box: debian:stable-slim
+
+build:
+    steps:
+        - shellcheck
+
+publish:
+    steps:
+        - internal/publish-step
