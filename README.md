@@ -1,5 +1,7 @@
 # Git Branch Deploy
 
+[![wercker status](https://app.wercker.com/status/c9d675d9c3f012382a911a9e60b21c71/s "wercker status")](https://app.wercker.com/project/bykey/c9d675d9c3f012382a911a9e60b21c71)
+
 A [wercker](http://wercker.com/) step to deploy to a certain git branch in a repo. Supports also [Github Pages](http://pages.github.com/).
 
 # IMPORTANT SECURITY NOTICE:
@@ -31,6 +33,8 @@ You either have to define a `gh_oauth` token if you deploy to github or a `host`
 - `gh_pages_domain` *optional* Custom domain ([documentation](https://help.github.com/articles/setting-up-a-custom-domain-with-pages))
 - `tag` *optional* Adds a tag to the pushed commit. Valid options are bower, node or any string.
 - `tag_overwrite` *optional* If set, tags will be overwritten
+- `ci_trigger` *optional* If set to `true`, commit message won't start with `[ci skip]`. Default is `false`. See [Skipping builds](http://blog.wercker.com/2014/05/01/Skipping-builds-on-wercker.html)
+- `message` *optional* If set, it will be used instead of default `deploy from deploy from $WERCKER_STARTED_BY`
 
 ## Example
 
@@ -61,3 +65,6 @@ deploy:
          branch: example
          basedir: build
 ```
+## Changelog
+
+0.7.18 - Fixed tag overwrite
