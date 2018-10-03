@@ -1,6 +1,6 @@
 # Git Branch Deploy
 
-[![wercker status](https://app.wercker.com/status/c9d675d9c3f012382a911a9e60b21c71/s "wercker status")](https://app.wercker.com/project/bykey/c9d675d9c3f012382a911a9e60b21c71)
+[![wercker status](https://app.wercker.com/status/afac48df6498fa1fedf0eba6f4f58eac/s/master "wercker status")](https://app.wercker.com/project/byKey/afac48df6498fa1fedf0eba6f4f58eac)
 
 A [wercker](http://wercker.com/) step to deploy to a certain git branch in a repo. Supports also [Github Pages](http://pages.github.com/).
 
