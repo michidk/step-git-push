@@ -93,7 +93,7 @@ cd $targetDir
 
 ls -A
 
-cp -rf $baseDir* $destDir
+cp -rf $baseDir. $destDir
 
 s_debug "before config"
 
@@ -127,7 +127,16 @@ git add --all . > /dev/null
 if git diff --cached --exit-code --quiet; then
   s_success "Nothing changed. We do not need to push"
 else
-  git commit -am "[ci skip] deploy from $WERCKER_STARTED_BY" --allow-empty > /dev/null
+  if [ -n "$WERCKER_GIT_PUSH_MESSAGE" ]; then
+    commit_msg="$WERCKER_GIT_PUSH_MESSAGE"
+  else
+    commit_msg="deploy from $WERCKER_STARTED_BY"
+  fi
+
+  if [ -z "$WERCKER_GIT_PUSH_CI_TRIGGER" ] || [ "$WERCKER_GIT_PUSH_CI_TRIGGER" != "true" ]; then
+    commit_msg="[ci skip] $commit_msg"
+  fi
+  git commit -am "$commit_msg" --allow-empty > /dev/null
   pushBranch $remoteURL $localBranch $remoteBranch
 fi
 
@@ -136,13 +145,8 @@ if [ -n "$WERCKER_GIT_PUSH_TAG" ]; then
   if [[ "$tags" =~ "$tag" ]]; then
     s_info "tag $tag already exists"
     if [ -n "$WERCKER_GIT_PUSH_TAG_OVERWRITE" ]; then
-      if git diff --exit-code --quiet $localBranch $tag; then
-        s_success "Nothing changed. We do not need to overwrite tag $tag"
-      else
-        s_info "tag $tag will be overwritten"
-        deleteTag $remoteURL $tag
-        pushTag $remoteURL $tag
-      fi
+      s_info "tag $tag will be overwritten"
+      pushTag $remoteURL $tag
     fi
   else
       pushTag $remoteURL $tag
