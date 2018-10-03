@@ -1,7 +1,6 @@
 box: debian
 build:
   steps:
-    - validate-wercker-step
     - shellcheck:
         files: run.sh
     - script:
