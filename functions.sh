@@ -47,10 +47,10 @@ function getRepoPath {
 function getRemoteURL {
   repo=$(getRepoPath)
   if [ -n "$WERCKER_GIT_PUSH_GH_OAUTH" ]; then
-    echo "https://$WERCKER_GIT_PUSH_GH_OAUTH@github.com/$repo.git"
+    echo "https://$WERCKER_GIT_PUSH_GH_OAUTH@github.com/$repo"
   elif [ -n "$WERCKER_GIT_PUSH_HOST" ]; then
     git_user=$(getGitSSHUser)
-    echo "$git_user@$WERCKER_GIT_PUSH_HOST:$repo.git"
+    echo "$git_user@$WERCKER_GIT_PUSH_HOST:$repo"
   else
     echo ""
   fi
