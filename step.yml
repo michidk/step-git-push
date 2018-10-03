@@ -1,6 +1,6 @@
 name: git-push
 version: 0.7.12
-description: Deploy to a git branch in a given Repo
+summary: Deploy to a git branch in a given Repo
 keywords:
   - github
   - pages
