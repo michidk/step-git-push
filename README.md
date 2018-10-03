@@ -65,6 +65,3 @@ deploy:
          branch: example
          basedir: build
 ```
-## Changelog
-
-0.7.18 - Fixed tag overwrite
