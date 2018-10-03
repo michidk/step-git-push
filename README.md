@@ -59,7 +59,7 @@ deploy:
     - add-to-known_hosts:
         hostname: bitbucket.org
         fingerprint: 97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40
-    - lordlothar99/git-push:
+    - michidk/git-push:
          host: bitbucket.org
          repo: example/exampleRepo
          branch: example
