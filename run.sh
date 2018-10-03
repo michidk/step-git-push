@@ -38,8 +38,12 @@ s_info "remote URL will be $remoteURL"
 
 baseDir=$(getBaseDir)
 
+s_info "base dir will be $baseDir"
+
 # setup branch
 remoteBranch=$(getBranch)
+
+s_info "remote branch will be $remoteBranch"
 
 cd $baseDir
 rm -rf .git
@@ -51,6 +55,8 @@ targetDir="/tmp/git-push"
 rm -rf $targetDir
 
 destDir=$targetDir
+
+s_info "dest dir will be $destDir"
 
 if [ -n "$WERCKER_GIT_PUSH_DESTDIR" ]; then
   destDir=$targetDir/$WERCKER_GIT_PUSH_DESTDIR
